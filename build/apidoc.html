@@ -1,0 +1,653 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/pifantastic/grunt-s3"
+
+    >grunt-s3 (v0.2.0-alpha.3)</a>
+</h1>
+<h4>A grunt task to automate moving files to/from Amazon S3.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-s3">module grunt-s3</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.grunt-s3">
+            function <span class="apidocSignatureSpan"></span>grunt-s3
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.S3Task">
+            function <span class="apidocSignatureSpan">grunt-s3.</span>S3Task
+            <span class="apidocSignatureSpan">(origTask, s3)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.init">
+            function <span class="apidocSignatureSpan">grunt-s3.</span>init
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">grunt-s3.</span>S3Task.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">grunt-s3.</span>common</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">grunt-s3.</span>s3</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-s3.S3Task">module grunt-s3.S3Task</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.S3Task.S3Task">
+            function <span class="apidocSignatureSpan">grunt-s3.</span>S3Task
+            <span class="apidocSignatureSpan">(origTask, s3)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-s3.S3Task.prototype">module grunt-s3.S3Task.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.S3Task.prototype._parseUploadFiles">
+            function <span class="apidocSignatureSpan">grunt-s3.S3Task.prototype.</span>_parseUploadFiles
+            <span class="apidocSignatureSpan">(upload, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.S3Task.prototype.getConfig">
+            function <span class="apidocSignatureSpan">grunt-s3.S3Task.prototype.</span>getConfig
+            <span class="apidocSignatureSpan">(optOptions, optData)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.S3Task.prototype.run">
+            function <span class="apidocSignatureSpan">grunt-s3.S3Task.prototype.</span>run
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-s3.common">module grunt-s3.common</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.common.hashFile">
+            function <span class="apidocSignatureSpan">grunt-s3.common.</span>hashFile
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-s3.s3">module grunt-s3.s3</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-s3.s3.init">
+            function <span class="apidocSignatureSpan">grunt-s3.s3.</span>init
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-s3" id="apidoc.module.grunt-s3">module grunt-s3</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.grunt-s3" id="apidoc.element.grunt-s3.grunt-s3">
+        function <span class="apidocSignatureSpan"></span>grunt-s3
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-s3 = function (grunt) {
+  var S3Task = require(&#x27;./lib/S3Task&#x27;);
+
+  // If grunt is not provided, then expose internal API.
+  if (typeof grunt !== &#x27;object&#x27;) {
+    return {
+      s3: s3,
+      S3Task: S3Task
+    };
+  }
+
+  s3 = s3.init(grunt);
+
+<span class="apidocCodeCommentSpan">  /**
+   * Transfer files to/from s3.
+   *
+   * Uses global s3 grunt config.
+   */
+</span>  grunt.registerMultiTask(&#x27;s3&#x27;, &#x27;Publishes files to s3.&#x27;, function () {
+    var task = new S3Task(this, s3);
+
+    task.run();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.S3Task" id="apidoc.element.grunt-s3.S3Task">
+        function <span class="apidocSignatureSpan">grunt-s3.</span>S3Task
+        <span class="apidocSignatureSpan">(origTask, s3)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">S3Task = function (origTask, s3) {
+  this._origTask = origTask;
+  this.s3 = s3;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.init" id="apidoc.element.grunt-s3.init">
+        function <span class="apidocSignatureSpan">grunt-s3.</span>init
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (grunt) {
+  return s3.init(grunt);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-s3.S3Task" id="apidoc.module.grunt-s3.S3Task">module grunt-s3.S3Task</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.S3Task.S3Task" id="apidoc.element.grunt-s3.S3Task.S3Task">
+        function <span class="apidocSignatureSpan">grunt-s3.</span>S3Task
+        <span class="apidocSignatureSpan">(origTask, s3)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">S3Task = function (origTask, s3) {
+  this._origTask = origTask;
+  this.s3 = s3;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-s3.S3Task.prototype" id="apidoc.module.grunt-s3.S3Task.prototype">module grunt-s3.S3Task.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.S3Task.prototype._parseUploadFiles" id="apidoc.element.grunt-s3.S3Task.prototype._parseUploadFiles">
+        function <span class="apidocSignatureSpan">grunt-s3.S3Task.prototype.</span>_parseUploadFiles
+        <span class="apidocSignatureSpan">(upload, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseUploadFiles = function (upload, config) {
+  // Expand list of files to upload.
+  var files = grunt.file.expand({ filter: &#x27;isFile&#x27; }, upload.src);
+  var destPath = grunt.template.process(upload.dest || &#x27;&#x27;);
+
+  return _.map(files, function (file) {
+    file = path.resolve(file);
+    upload.src = path.resolve(grunt.template.process(upload.src));
+
+    // Put the key, secret and bucket information into the upload for knox.
+    var fileConfig = _.extend({}, config, upload.options || {});
+
+    // If there is only 1 file and it matches the original file wildcard,
+    // we know this is a single file transfer. Otherwise, we need to build
+    // the destination.
+    var dest;
+    if (files.length === 1 &#x26;&#x26; file === upload.src) {
+      dest = destPath;
+    }
+    else {
+      if (upload.rel) {
+        dest = path.join(destPath, path.relative(grunt.file.expand({ filter: &#x22;isDirectory&#x22; }, upload.rel)[0], file));
+      }
+      else {
+        dest = path.join(destPath, path.basename(file));
+      }
+    }
+
+    if (config.encodePaths === true) {
+      dest = encodeURIComponent(dest);
+    }
+
+    dest = dest.replace(/\\/g, &#x27;/&#x27;);
+
+    return {
+      file: file,
+      dest: dest,
+      upload: fileConfig
+    };
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (config.debug) {
+  grunt.log.writeln(&#x27;Running in debug mode, no transfers will be made&#x27;.yellow);
+  grunt.log.writeln();
+}
+
+config.upload.forEach(function (upload) {
+  var uploadFiles = self.<span class="apidocCodeKeywordSpan">_parseUploadFiles</span>(upload, config);
+
+  uploadFiles.forEach(function (uploadFile) {
+    transfers.push(s3.upload.bind(s3, uploadFile.file, uploadFile.dest, uploadFile.upload));
+  });
+});
+
+config.sync.forEach(function (sync) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.S3Task.prototype.getConfig" id="apidoc.element.grunt-s3.S3Task.prototype.getConfig">
+        function <span class="apidocSignatureSpan">grunt-s3.S3Task.prototype.</span>getConfig
+        <span class="apidocSignatureSpan">(optOptions, optData)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getConfig = function (optOptions, optData) {
+  // Grab the options for this task.
+  var opts = optOptions || this._origTask.options();
+
+  var defaultOpts = {
+    key: process.env.AWS_ACCESS_KEY_ID,
+    secret: process.env.AWS_SECRET_ACCESS_KEY,
+    debug: false,
+    verify: false,
+    maxOperations: 0,
+    encodePaths: false
+  };
+
+  // Grab the actions to perform from the task data, default to empty arrays
+  var fileActions = optData || this._origTask.data;
+  var defaultFileActions = {
+    upload: [],
+    download: [],
+    del: [],
+    copy: [],
+    sync: []
+  };
+
+  // Combine the options and fileActions as the config
+  return _.extend({}, defaultOpts, defaultFileActions, opts, fileActions);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+S3Task.prototype = {
+  run: function () {
+var self = this;
+var s3 = this.s3;
+var done = this._origTask.async();
+var config = this.<span class="apidocCodeKeywordSpan">getConfig</span>();
+var transfers = [];
+
+if (config.debug) {
+  grunt.log.writeln(&#x27;Running in debug mode, no transfers will be made&#x27;.yellow);
+  grunt.log.writeln();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.S3Task.prototype.run" id="apidoc.element.grunt-s3.S3Task.prototype.run">
+        function <span class="apidocSignatureSpan">grunt-s3.S3Task.prototype.</span>run
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function () {
+  var self = this;
+  var s3 = this.s3;
+  var done = this._origTask.async();
+  var config = this.getConfig();
+  var transfers = [];
+
+  if (config.debug) {
+    grunt.log.writeln(&#x27;Running in debug mode, no transfers will be made&#x27;.yellow);
+    grunt.log.writeln();
+  }
+
+  config.upload.forEach(function (upload) {
+    var uploadFiles = self._parseUploadFiles(upload, config);
+
+    uploadFiles.forEach(function (uploadFile) {
+      transfers.push(s3.upload.bind(s3, uploadFile.file, uploadFile.dest, uploadFile.upload));
+    });
+  });
+
+  config.sync.forEach(function (sync) {
+    var syncFiles = self._parseUploadFiles(sync, config);
+
+    syncFiles.forEach(function (syncFile) {
+      transfers.push(s3.sync.bind(s3, syncFile.file, syncFile.dest, syncFile.upload));
+    });
+  });
+
+  config.download.forEach(function (download) {
+    transfers.push(s3.download.bind(s3, download.src, download.dest, _(download).defaults(config)));
+  });
+
+  config.del.forEach(function (del) {
+    transfers.push(s3.del.bind(s3, del.src, _(del).defaults(config)));
+  });
+
+  config.copy.forEach(function (copy) {
+    transfers.push(s3.copy.bind(s3, copy.src, copy.dest, _(copy).defaults(config)));
+  });
+
+  var total = transfers.length;
+  var errors = 0;
+
+  var eachTransfer = config.maxOperations &#x3e; 0 ?
+    async.forEachLimit.bind(async,transfers,config.maxOperations) :
+    async.forEach.bind(async,transfers);
+
+  eachTransfer(function (transferFn, completed){
+    var transfer = transferFn();
+
+    transfer.done(function (msg) {
+      grunt.log.ok(msg);
+      completed();
+    });
+
+    transfer.fail(function (msg) {
+      grunt.log.error(msg);
+      ++errors;
+      completed();
+    });
+
+  }, function () {
+    done(!errors);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-s3.common" id="apidoc.module.grunt-s3.common">module grunt-s3.common</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.common.hashFile" id="apidoc.element.grunt-s3.common.hashFile">
+        function <span class="apidocSignatureSpan">grunt-s3.common.</span>hashFile
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hashFile = function (path) {
+  return crypto.createHash(&#x27;md5&#x27;).update(fs.readFileSync(path)).digest(&#x27;hex&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-s3.s3" id="apidoc.module.grunt-s3.s3">module grunt-s3.s3</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-s3.s3.init" id="apidoc.element.grunt-s3.s3.init">
+        function <span class="apidocSignatureSpan">grunt-s3.s3.</span>init
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (grunt) {
+  var async = grunt.util.async;
+  var _ = grunt.util._;
+
+  _.mixin(deferred);
+
+  var exports = {};
+
+<span class="apidocCodeCommentSpan">  /**
+   * Create an Error object based off of a formatted message. Arguments
+   * are identical to those of util.format.
+   *
+   * @param {String} Format.
+   * @param {...string|number} Values to insert into Format.
+   * @returns {Error}
+   */
+</span>  var makeError = exports.makeError = function () {
+    var msg = util.format.apply(util, _.toArray(arguments));
+    return new Error(msg);
+  };
+
+  var makeOptions = exports.makeOptions = function(opts) {
+    var options = _.clone(opts || {}, true);
+
+    return options;
+  };
+
+  /**
+   * Create an s3 client. Returns an Knox instance.
+   *
+   * @param {Object} Format.
+   * @returns {Object}
+   */
+  var makeClient = exports.makeClient = function(options) {
+    return knox.createClient(_.pick(options, [
+      &#x27;region&#x27;, &#x27;endpoint&#x27;, &#x27;port&#x27;, &#x27;key&#x27;, &#x27;secret&#x27;, &#x27;access&#x27;, &#x27;bucket&#x27;, &#x27;secure&#x27;, &#x27;headers&#x27;, &#x27;style&#x27;
+    ]));
+  };
+
+  /**
+   * Publishes the local file at src to the s3 dest.
+   *
+   * Verifies that the upload was successful by comparing an md5 checksum of
+   * the local and remote versions.
+   *
+   * @param {String} src The local path to the file to upload.
+   * @param {String} dest The s3 path, relative to the bucket, to which the src
+   *     is uploaded.
+   * @param {Object} [options] An object containing options which override any
+   *     option declared in the global s3 config.
+   */
+  exports.put = exports.upload = function (src, dest, opts) {
+    var dfd = new _.Deferred();
+    var options = makeOptions(opts);
+    var prettySrc = path.relative(process.cwd(), src);
+
+    // Make sure the local file exists.
+    if (!existsSync(src)) {
+      return dfd.reject(makeError(MSG_ERR_NOT_FOUND, prettySrc));
+    }
+
+    var headers = options.headers || {};
+
+    if (options.access) {
+      headers[&#x27;x-amz-acl&#x27;] = options.access;
+    }
+
+    // Pick out the configuration options we need for the client.
+    var client = makeClient(options);
+
+    if (options.debug) {
+      return dfd.resolve(util.format(MSG_UPLOAD_DEBUG, prettySrc, client.bucket, dest)).promise();
+    }
+
+    // Encapsulate this logic to make it easier to gzip the file first if
+    // necesssary.
+    var upload = function (cb) {
+      cb = cb || function () {};
+
+      // Upload the file to s3.
+      client.putFile(src, dest, headers, function (err, res) {
+        // If there was an upload error or any status other than a 200, we
+        // can assume something went wrong.
+        if (err || res.statusCode !== 200) {
+          cb(makeError(MSG_ERR_UPLOAD, prettySrc, err || res.statusCode));
+        }
+        else {
+          // Read the local file so we can get its md5 hash.
+          fs.readFile(src, function (err, data) {
+            if (err) {
+              cb(makeError(MSG_ERR_UPLOAD, prettySrc, err));
+            }
+            else {
+              // The etag head in the response from s3 has double quotes around
+              // it. Strip them out.
+              var remoteHash = res.headers.etag.replace(/&#x22;/g, &#x27;&#x27;);
+
+              // Get an md5 of the local file so we can verify the upload.
+              var localHash = crypto.createHash(&#x27;md5&#x27;).update(data).digest(&#x27;hex&#x27;);
+
+              if (remoteHash === localHash) {
+                var msg = util.format(MSG_UPLOAD_SUCCESS, prettySrc, localHash);
+                cb(null, msg);
+              }
+              else {
+                cb(makeError(MSG_ERR_CHECKSUM, &#x27;Upload&#x27;, localHash, remoteHash, prettySrc));
+              }
+            }
+          });
+        }
+        res.resume();
+      });
+    };
+
+    // prepare gzip exclude option
+    var gzipExclude = options.gzipExclude || [];
+    if (!_.isArray(gzipExclude)) {
+      gzipExclude = [];
+    }
+
+    // If gzip is enabled and file not in gzip exclude array,
+    // gzip the file into a temp file and then perform the upload.
+    if (options.gzip &#x26;&#x26; gzipExclude.indexOf(path.extname(src)) === -1) {
+      headers[&#x27;Content-Encoding&#x27;] = &#x27;gzip&#x27;;
+      headers[&#x27;Content-Type&#x27;] = headers[&#x27;Content-Type&#x27;] || mime.lookup(src) ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
